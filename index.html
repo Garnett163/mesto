@@ -30,7 +30,7 @@
           <button class="profile__edit-button" type="button"></button>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__add-button"></button>
+        <button class="profile__add-button" type="button"></button>
       </section>
       <section class="elements">
         <ul class="elements__list">
@@ -42,7 +42,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Карачаевск</h2>
-              <button class="elements__like"></button>
+              <button class="elements__like-button" type="button"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -53,7 +53,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Гора Эльбрус</h2>
-              <button class="elements__like"></button>
+              <button class="elements__like-button" type="button"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -64,7 +64,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Домбай</h2>
-              <button class="elements__like"></button>
+              <button class="elements__like-button" type="button"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -75,7 +75,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Исландия</h2>
-              <button class="elements__like"></button>
+              <button class="elements__like-button" type="button"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -86,7 +86,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Озеро Джун</h2>
-              <button class="elements__like"></button>
+              <button class="elements__like-button" type="button"></button>
             </div>
           </li>
           <li class="elements__item">
@@ -97,7 +97,7 @@
             />
             <div class="elements__container">
               <h2 class="elements__title">Валь-де-Шарме</h2>
-              <button class="elements__like"></button>
+              <button class="elements__like-button" type="button"></button>
             </div>
           </li>
         </ul>
@@ -107,7 +107,31 @@
       <p class="footer__copyright">&copy; 2023 Виктор Филиппов</p>
     </footer>
     <div class="popup">
-      <div class="popup__container"></div>
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <form action="#" class="popup__form">
+          <fieldset class="popup__fieldset">
+            <legend class="popup__title">Редактировать профиль</legend>
+            <label for="name" class="popup__label">
+              <input
+                class="popup__input"
+                name="name"
+                id="name"
+                placeholder="Имя Пользователя"
+              />
+            </label>
+            <label for="about" class="popup__label">
+              <input
+                class="popup__input"
+                name="about"
+                id="about"
+                placeholder="О себе"
+              />
+            </label>
+          </fieldset>
+          <button type="submit" class="popup__save-button">Сохранить</button>
+        </form>
+      </div>
     </div>
     <script src="./scripts/app.js"></script>
   </body>
