@@ -2,3 +2,8 @@
   margin: 45px auto 40px;
   max-width: 880px;
 }
+@media screen and (max-width: 900) {
+  .header {
+    max-width: 100%;
+  }
+}

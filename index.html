@@ -13,22 +13,102 @@
       <a href="#"
         ><img
           class="header__logo"
-          src="./images/Vector.png"
+          src="./images/Mesto-logo.png"
           alt="Логотип Место"
       /></a>
       <div class="header__line"></div>
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/Avatar.png" />
+        <img
+          class="profile__avatar"
+          src="./images/Avatar.png"
+          alt="Аватар портфолио"
+        />
         <div class="profile__info">
-          <h1 profile__title>Жак-Ив Кусто</h1>
-          <p>Исследователь океана</p>
-          <button class="profile__edit-button"></button>
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button></button>
+        <button class="profile__add-button"></button>
+      </section>
+      <section class="elements">
+        <ul class="elements__list">
+          <li class="elements__item">
+            <img
+              class="elements__image"
+              src="./images/karachaevs.png"
+              alt="Старый Собор в городе Карачаевск"
+            />
+            <div class="elements__container">
+              <h2 class="elements__title">Карачаевск</h2>
+              <button class="elements__like"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img
+              class="elements__image"
+              src="./images/Elbrus.png"
+              alt="Гора Эльбрус"
+            />
+            <div class="elements__container">
+              <h2 class="elements__title">Гора Эльбрус</h2>
+              <button class="elements__like"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img
+              class="elements__image"
+              src="./images/Dombai.png"
+              alt="Горный хребет Домбай"
+            />
+            <div class="elements__container">
+              <h2 class="elements__title">Домбай</h2>
+              <button class="elements__like"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img
+              class="elements__image"
+              src="./images/Iceland.jpg"
+              alt="Горы Исландии"
+            />
+            <div class="elements__container">
+              <h2 class="elements__title">Исландия</h2>
+              <button class="elements__like"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img
+              class="elements__image"
+              src="./images/June Lake,  USA.jpg"
+              alt="Озеру Джун в Калифорнии"
+            />
+            <div class="elements__container">
+              <h2 class="elements__title">Озеро Джун</h2>
+              <button class="elements__like"></button>
+            </div>
+          </li>
+          <li class="elements__item">
+            <img
+              class="elements__image"
+              src="./images/Val-de-Charmey, Schweiz.jpg"
+              alt="Коммуна Валь-де-Шарме"
+            />
+            <div class="elements__container">
+              <h2 class="elements__title">Валь-де-Шарме</h2>
+              <button class="elements__like"></button>
+            </div>
+          </li>
+        </ul>
       </section>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023 Виктор Филиппов</p>
+    </footer>
+    <div class="popup">
+      <div class="popup__container"></div>
+    </div>
+    <script src="./scripts/app.js"></script>
   </body>
 </html>
