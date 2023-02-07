@@ -1,13 +1,17 @@
 .header {
   margin: 45px auto 40px;
   max-width: 880px;
-  transition: opacity 0.3s ease;
+  border-bottom: 1px solid rgb(84, 84, 84, 0.7);
+  /* В макете opacity 0.7 */
 }
-.header:hover {
-  opacity: 0.6;
-}
-@media screen and (max-width: 900) {
+
+@media screen and (max-width: 900px) {
   .header {
     max-width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .header {
+    margin: 28px 0 38px;
   }
 }

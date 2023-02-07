@@ -10,8 +10,4 @@
   display: none;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-}
-.popup_open {
-  display: flex;
 }

@@ -10,13 +10,11 @@
   </head>
   <body class="page">
     <header class="header">
-      <a href="#"
-        ><img
-          class="header__logo"
-          src="./images/Mesto-logo.png"
-          alt="Логотип Место"
-      /></a>
-      <div class="header__line"></div>
+      <img
+        class="header__logo"
+        src="./images/Mesto-logo.png"
+        alt="Логотип Место"
+      />
     </header>
     <main class="content">
       <section class="profile">
@@ -109,25 +107,21 @@
     <div class="popup">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
-        <form action="#" class="popup__form">
+        <form action="#" class="popup__form" name="editForm" method="GET">
           <fieldset class="popup__fieldset">
             <legend class="popup__title">Редактировать профиль</legend>
-            <label for="name" class="popup__label">
-              <input
-                class="popup__input popup__input-name"
-                name="name"
-                id="name"
-                placeholder="Имя Пользователя"
-              />
-            </label>
-            <label for="about" class="popup__label">
-              <input
-                class="popup__input popup__input-about"
-                name="about"
-                id="about"
-                placeholder="О себе"
-              />
-            </label>
+            <input
+              class="popup__input"
+              name="name"
+              id="name"
+              placeholder="Имя Пользователя"
+            />
+            <input
+              class="popup__input"
+              name="about"
+              id="about"
+              placeholder="О себе"
+            />
           </fieldset>
           <button type="submit" class="popup__save-button">Сохранить</button>
         </form>
