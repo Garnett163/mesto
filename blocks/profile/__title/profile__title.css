@@ -13,11 +13,13 @@
 }
 @media screen and (max-width: 900px) {
   .profile__title {
-    font-size: 35px;
+    max-width: 80%;
+    font-size: 32px;
   }
 }
 @media screen and (max-width: 600px) {
   .profile__title {
+    max-width: 88%;
     margin-bottom: 8px;
     text-align: center;
     font-size: 27px;
