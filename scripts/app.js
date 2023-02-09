@@ -7,26 +7,24 @@ const inputAbout = document.querySelector("#about");
 const title = document.querySelector(".profile__title");
 const subtitle = document.querySelector(".profile__subtitle");
 
-function togglePopup() {
-  popup.classList.toggle("popup_open");
+function openPopup() {
+  popup.classList.add("popup_open");
   inputName.value = title.textContent;
   inputAbout.value = subtitle.textContent;
 }
 
-editBtn.addEventListener("click", togglePopup);
-closeBtn.addEventListener("click", togglePopup);
+function closePopup() {
+  popup.classList.remove("popup_open");
+}
+
+editBtn.addEventListener("click", openPopup);
+closeBtn.addEventListener("click", closePopup);
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
   title.textContent = inputName.value;
   subtitle.textContent = inputAbout.value;
-  togglePopup();
+  closePopup();
 }
 
 popupForm.addEventListener("submit", handleFormSubmit);
-
-// closeBtn.addEventListener("keypress", (evt) => {
-//   if (evt.key === "Escape") {
-//     popup.classList.remove("popup_open");
-//   }
-// });
