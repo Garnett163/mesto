@@ -10,19 +10,11 @@
   </head>
   <body class="page">
     <header class="header">
-      <img
-        class="header__logo"
-        src="./images/Mesto-logo.svg"
-        alt="Логотип Место"
-      />
+      <img class="header__logo" src="./images/Mesto-logo.svg" alt="Логотип Место" />
     </header>
     <main class="content">
       <section class="profile">
-        <img
-          class="profile__avatar"
-          src="./images/Avatar.png"
-          alt="Аватар портфолио"
-        />
+        <img class="profile__avatar" src="./images/Avatar.png" alt="Аватар портфолио" />
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" type="button"></button>
@@ -32,98 +24,48 @@
       </section>
       <section class="elements">
         <ul class="elements__list">
-          <li class="elements__item">
-            <img
-              class="elements__image"
-              src="./images/karachaevs.png"
-              alt="Старый Собор в городе Карачаевск"
-            />
-            <div class="elements__container">
-              <h2 class="elements__title">Карачаевск</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img
-              class="elements__image"
-              src="./images/Elbrus.png"
-              alt="Гора Эльбрус"
-            />
-            <div class="elements__container">
-              <h2 class="elements__title">Гора Эльбрус</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img
-              class="elements__image"
-              src="./images/Dombai.png"
-              alt="Горный хребет Домбай"
-            />
-            <div class="elements__container">
-              <h2 class="elements__title">Домбай</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img
-              class="elements__image"
-              src="./images/Iceland.jpg"
-              alt="Горы Исландии"
-            />
-            <div class="elements__container">
-              <h2 class="elements__title">Исландия</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img
-              class="elements__image"
-              src="./images/June-Lake.jpg"
-              alt="Озеру Джун в Калифорнии"
-            />
-            <div class="elements__container">
-              <h2 class="elements__title">Озеро Джун</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img
-              class="elements__image"
-              src="./images/Val-de-Charmey.jpg"
-              alt="Коммуна Валь-де-Шарме"
-            />
-            <div class="elements__container">
-              <h2 class="elements__title">Валь-де-Шарме</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
+          <template id="element__template-card">
+            <li class="elements__item">
+              <button class="elements__delete-button"></button>
+              <img
+                class="elements__image"
+                src="./images/karachaevs.png"
+                alt="Старый Собор в городе Карачаевск" />
+              <div class="elements__container">
+                <h2 class="elements__title">Карачаевск</h2>
+                <button class="elements__like-button" type="button"></button>
+              </div>
+            </li>
+          </template>
         </ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2023 Виктор Филиппов</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_type_edit-button">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
         <form action="#" class="popup__form" name="editForm" method="GET">
           <fieldset class="popup__fieldset">
             <legend class="popup__title">Редактировать профиль</legend>
-            <input
-              class="popup__input"
-              name="name"
-              id="name"
-              placeholder="Имя Пользователя"
-            />
-            <input
-              class="popup__input"
-              name="about"
-              id="about"
-              placeholder="О себе"
-            />
+            <input class="popup__input" name="name" id="name" placeholder="Имя Пользователя" />
+            <input class="popup__input" name="about" id="about" placeholder="О себе" />
           </fieldset>
           <button type="submit" class="popup__save-button">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_add-button">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <form action="#" class="popup__form" name="addForm" method="GET">
+          <fieldset class="popup__fieldset">
+            <legend class="popup__title">Новое место</legend>
+            <input class="popup__input" name="name" id="name" placeholder="Название" />
+            <input class="popup__input" name="about" id="about" placeholder="Ссылка на картинку" />
+          </fieldset>
+          <button type="submit" class="popup__save-button">Создать</button>
         </form>
       </div>
     </div>
