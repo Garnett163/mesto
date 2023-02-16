@@ -27,12 +27,9 @@
           <template id="element__template-card">
             <li class="elements__item">
               <button class="elements__delete-button"></button>
-              <img
-                class="elements__image"
-                src="./images/karachaevs.png"
-                alt="Старый Собор в городе Карачаевск" />
+              <img class="elements__image" src="" alt="" />
               <div class="elements__container">
-                <h2 class="elements__title">Карачаевск</h2>
+                <h2 class="elements__title"></h2>
                 <button class="elements__like-button" type="button"></button>
               </div>
             </li>
@@ -43,7 +40,7 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2023 Виктор Филиппов</p>
     </footer>
-    <div class="popup popup_type_edit-button">
+    <div class="popup popup_type_edit">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
         <form action="#" class="popup__form" name="editForm" method="GET">
@@ -56,14 +53,22 @@
         </form>
       </div>
     </div>
-    <div class="popup popup_type_add-button">
+    <div class="popup popup_type_add">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
         <form action="#" class="popup__form" name="addForm" method="GET">
           <fieldset class="popup__fieldset">
             <legend class="popup__title">Новое место</legend>
-            <input class="popup__input" name="name" id="name" placeholder="Название" />
-            <input class="popup__input" name="about" id="about" placeholder="Ссылка на картинку" />
+            <input
+              class="popup__input popup__input_name"
+              name="nameName"
+              id="name"
+              placeholder="Название" />
+            <input
+              class="popup__input popup__input_url"
+              name="nameUrl"
+              id="about"
+              placeholder="Ссылка на картинку" />
           </fieldset>
           <button type="submit" class="popup__save-button">Создать</button>
         </form>
