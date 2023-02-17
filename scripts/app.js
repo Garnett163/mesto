@@ -57,6 +57,7 @@ function createCard(title, url) {
   elementsTitle.textContent = title;
   const elementsImage = cardElement.querySelector('.elements__image');
   elementsImage.src = url;
+  elementsImage.alt = title;
 
   elementsImage.addEventListener('click', () => showImage(title, url));
   deleteBtn.addEventListener('click', deleteCard);
@@ -117,6 +118,7 @@ function showImage(title, url) {
 
   imageTitle.textContent = title;
   imageItem.src = url;
+  imageItem.alt = title;
 
   openPopup(popupImage);
 }
