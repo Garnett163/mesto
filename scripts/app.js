@@ -32,8 +32,8 @@ const initialCards = [
     link: './images/Elbrus.png',
   },
   {
-    name: 'Домбай',
-    link: './images/Dombai.png',
+    name: 'Озеро Лейк',
+    link: './images/Louise-Lake.jpg',
   },
   {
     name: 'Исландия',
@@ -59,7 +59,6 @@ function createCard(title, url) {
   elementsImage.src = url;
 
   elementsImage.addEventListener('click', () => showImage(title, url));
-
   deleteBtn.addEventListener('click', deleteCard);
   likeBtn.addEventListener('click', toggleLike);
 
@@ -116,8 +115,8 @@ function showImage(title, url) {
   const imageTitle = document.querySelector('.popup__image-title');
   const imageItem = document.querySelector('.popup__image');
 
-  imageItem.src = url;
   imageTitle.textContent = title;
+  imageItem.src = url;
 
   openPopup(popupImage);
 }
