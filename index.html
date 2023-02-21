@@ -56,18 +56,18 @@
     <div class="popup popup_type_add">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
-        <form action="#" class="popup__form" name="addForm" method="GET">
+        <form action="#" class="popup__form" name="addForm" method="POST">
           <fieldset class="popup__fieldset">
             <legend class="popup__title">Новое место</legend>
             <input
               class="popup__input popup__input_name"
               name="nameName"
-              id="name"
+              id="imageName"
               placeholder="Название" />
             <input
               class="popup__input popup__input_url"
               name="nameUrl"
-              id="about"
+              id="imageUrl"
               placeholder="Ссылка на картинку" />
           </fieldset>
           <button type="submit" class="popup__save-button">Создать</button>
@@ -75,11 +75,11 @@
       </div>
     </div>
     <div class="popup popup_type_image">
-      <div class="popup__image-container">
+      <figure class="popup__image-container">
         <button class="popup__close-button" type="button"></button>
-        <img class="popup__image" src="" alt="" />
+        <img class="popup__image" src="#" alt="#" />
         <figcaption class="popup__image-title"></figcaption>
-      </div>
+      </figure>
     </div>
     <script src="./scripts/app.js"></script>
   </body>
