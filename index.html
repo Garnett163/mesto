@@ -46,10 +46,32 @@
         <form action="#" class="popup__form" name="editForm" method="GET">
           <fieldset class="popup__fieldset">
             <legend class="popup__title">Редактировать профиль</legend>
-            <input class="popup__input" name="name" id="name" placeholder="Имя Пользователя" />
-            <input class="popup__input" name="about" id="about" placeholder="О себе" />
+            <div class="popup__input-box">
+              <input
+                class="popup__input"
+                name="nameHeading"
+                id="inputNameEditProfile"
+                type="text"
+                placeholder="Имя Пользователя"
+                minlength="2"
+                maxlength="40"
+                required />
+              <span class="popup__input-error inputNameEditProfile-error"></span>
+            </div>
+            <div class="popup__input-box">
+              <input
+                class="popup__input"
+                name="description"
+                id="inputDescriptionEditProfile"
+                type="text"
+                placeholder="О себе"
+                minlength="2"
+                maxlength="200"
+                required />
+              <span class="popup__input-error inputDescriptionEditProfile-error"></span>
+            </div>
+            <button type="submit" class="popup__submit-button">Сохранить</button>
           </fieldset>
-          <button type="submit" class="popup__save-button">Сохранить</button>
         </form>
       </div>
     </div>
@@ -59,18 +81,30 @@
         <form action="#" class="popup__form" name="addForm" method="POST">
           <fieldset class="popup__fieldset">
             <legend class="popup__title">Новое место</legend>
-            <input
-              class="popup__input popup__input_name"
-              name="nameName"
-              id="imageName"
-              placeholder="Название" />
-            <input
-              class="popup__input popup__input_url"
-              name="nameUrl"
-              id="imageUrl"
-              placeholder="Ссылка на картинку" />
+            <div class="popup__input-box">
+              <input
+                class="popup__input popup__input_name"
+                name="nameName"
+                id="inputImageNameAddProfile"
+                type="text"
+                placeholder="Название"
+                minlength="2"
+                maxlength="30"
+                required />
+              <span class="popup__input-error inputImageNameAddProfile-error"></span>
+            </div>
+            <div class="popup__input-box">
+              <input
+                class="popup__input popup__input_url"
+                name="nameUrl"
+                id="inputImageUrlAddProfile"
+                type="url"
+                placeholder="Ссылка на картинку"
+                required />
+              <span class="popup__input-error inputImageUrlAddProfile-error"></span>
+            </div>
+            <button type="submit" class="popup__submit-button">Создать</button>
           </fieldset>
-          <button type="submit" class="popup__save-button">Создать</button>
         </form>
       </div>
     </div>
@@ -81,6 +115,8 @@
         <figcaption class="popup__image-title"></figcaption>
       </figure>
     </div>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/clone.js"></script>
   </body>
 </html>
