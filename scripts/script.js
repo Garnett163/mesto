@@ -21,6 +21,7 @@ const popupImageProfile = document.querySelector('.popup_type_image');
 const popupImageTitle = document.querySelector('.popup__image-title');
 const popupImageItem = document.querySelector('.popup__image');
 const closeBtns = document.querySelectorAll('.popup__close-button');
+const submitButtonCreate = document.querySelector('.popup__submit-button_create');
 const inputNamePopupEdit = document.querySelector('#inputNameEditProfile');
 const inputAboutPopupEdit = document.querySelector('#inputDescriptionEditProfile');
 
@@ -108,10 +109,13 @@ function submitEditProfileForm(evt) {
   subtitleProfile.textContent = inputAboutPopupEdit.value;
   closePopup(popupEditProfile);
 }
+
 function submitAddCardProfile(evt) {
   evt.preventDefault();
   addCard(nameInputPopupAdd.value, urlInputPopupAdd.value, elementsList);
   addForm.reset();
+  submitButtonCreate.classList.add('popup__submit-button_disabled'); // При открытие попапа чтобы кнопка была с классом и артибутом выкл
+  submitButtonCreate.setAttribute('disabled', 'disabled');
   closePopup(popupAddProfile);
 }
 function showImage(title, url) {
@@ -124,6 +128,7 @@ function showImage(title, url) {
 initialCards.forEach((item) => {
   addCard(item.name, item.link, elementsList);
 });
+
 buttonEditPopup.addEventListener('click', openPopupEditProfile);
 buttonAddPopup.addEventListener('click', openPopupAddProfile);
 formEditProfile.addEventListener('submit', submitEditProfileForm);
