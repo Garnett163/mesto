@@ -20,8 +20,8 @@ const popupAddProfile = document.querySelector('.popup_type_add');
 const popupImageProfile = document.querySelector('.popup_type_image');
 const popupImageTitle = document.querySelector('.popup__image-title');
 const popupImageItem = document.querySelector('.popup__image');
-const closeBtns = document.querySelectorAll('.popup__close-button');
-const submitButtonCreate = document.querySelector('.popup__submit-button_create');
+// const closeBtns = document.querySelectorAll('.popup__close-button');
+// const submitButtonCreate = document.querySelector('.popup__submit-button_create');
 const inputNamePopupEdit = document.querySelector('#inputNameEditProfile');
 const inputAboutPopupEdit = document.querySelector('#inputDescriptionEditProfile');
 
@@ -90,8 +90,8 @@ function closePopup(popup) {
   document.removeEventListener('keydown', closePopupByEscape);
 }
 function closePopupByEscape(evt) {
-  const openPopup = document.querySelector('.popup_open');
   if (evt.key === 'Escape') {
+    const openPopup = document.querySelector('.popup_open');
     closePopup(openPopup);
   }
 }
@@ -114,8 +114,8 @@ function submitAddCardProfile(evt) {
   evt.preventDefault();
   addCard(nameInputPopupAdd.value, urlInputPopupAdd.value, elementsList);
   addForm.reset();
-  submitButtonCreate.classList.add('popup__submit-button_disabled'); // При открытие попапа чтобы кнопка была с классом и артибутом выкл
-  submitButtonCreate.setAttribute('disabled', 'disabled');
+  // submitButtonCreate.classList.add('popup__submit-button_disabled');
+  // submitButtonCreate.setAttribute('disabled', 'disabled');
   closePopup(popupAddProfile);
 }
 function showImage(title, url) {
@@ -133,17 +133,28 @@ buttonEditPopup.addEventListener('click', openPopupEditProfile);
 buttonAddPopup.addEventListener('click', openPopupAddProfile);
 formEditProfile.addEventListener('submit', submitEditProfileForm);
 formAddProfile.addEventListener('submit', submitAddCardProfile);
-closeBtns.forEach((item) => {
-  const popup = item.closest('.popup');
-  item.addEventListener('click', () => {
-    closePopup(popup);
-  });
-});
 
 popups.forEach((popup) => {
-  popup.addEventListener('click', (evt) => {
-    if (evt.target === popup) {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_open')) {
+      closePopup(popup);
+    }
+    if (evt.target.classList.contains('popup__close-button')) {
       closePopup(popup);
     }
   });
 });
+// closeBtns.forEach((item) => {
+//   const popup = item.closest('.popup');
+//   item.addEventListener('click', () => {
+//     closePopup(popup);
+//   });
+// });
+
+// popups.forEach((popup) => {
+//   popup.addEventListener('click', (evt) => {
+//     if (evt.target === popup) {
+//       closePopup(popup);
+//     }
+//   });
+// });
