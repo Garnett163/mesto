@@ -1,3 +1,7 @@
+import { initialCards, configValidation } from './constans.js';
+import { FormValidator } from './FormValidator.js';
+// import { Card } from './Card.js';
+
 // Profile
 const titleProfile = document.querySelector('.profile__title');
 const subtitleProfile = document.querySelector('.profile__subtitle');
@@ -20,37 +24,9 @@ const popupAddProfile = document.querySelector('.popup_type_add');
 const popupImageProfile = document.querySelector('.popup_type_image');
 const popupImageTitle = document.querySelector('.popup__image-title');
 const popupImageItem = document.querySelector('.popup__image');
-// const closeBtns = document.querySelectorAll('.popup__close-button');
-// const submitButtonCreate = document.querySelector('.popup__submit-button_create');
+const submitButtonCreate = document.querySelector('.popup__submit-button_create');
 const inputNamePopupEdit = document.querySelector('#inputNameEditProfile');
 const inputAboutPopupEdit = document.querySelector('#inputDescriptionEditProfile');
-
-const initialCards = [
-  {
-    name: 'Карачаевск',
-    link: './images/karachaevs.png',
-  },
-  {
-    name: 'Гора Эльбрус',
-    link: './images/Elbrus.png',
-  },
-  {
-    name: 'Озеро Лейк',
-    link: './images/Louise-Lake.jpg',
-  },
-  {
-    name: 'Исландия',
-    link: './images/Iceland.jpg',
-  },
-  {
-    name: 'Озеро Джун',
-    link: './images/June-Lake.jpg',
-  },
-  {
-    name: 'Валь-де-Шарме',
-    link: './images/Val-de-Charmey.jpg',
-  },
-];
 
 function createCard(title, url) {
   const cardElement = elementTemplateCard.querySelector('.elements__item').cloneNode(true);
@@ -114,8 +90,8 @@ function submitAddCardProfile(evt) {
   evt.preventDefault();
   addCard(nameInputPopupAdd.value, urlInputPopupAdd.value, elementsList);
   addForm.reset();
-  // submitButtonCreate.classList.add('popup__submit-button_disabled');
-  // submitButtonCreate.setAttribute('disabled', 'disabled');
+  submitButtonCreate.classList.add('popup__submit-button_disabled');
+  submitButtonCreate.setAttribute('disabled', 'disabled');
   closePopup(popupAddProfile);
 }
 function showImage(title, url) {
@@ -144,17 +120,9 @@ popups.forEach((popup) => {
     }
   });
 });
-// closeBtns.forEach((item) => {
-//   const popup = item.closest('.popup');
-//   item.addEventListener('click', () => {
-//     closePopup(popup);
-//   });
-// });
 
-// popups.forEach((popup) => {
-//   popup.addEventListener('click', (evt) => {
-//     if (evt.target === popup) {
-//       closePopup(popup);
-//     }
-//   });
-// });
+const addFormValidator = new FormValidator(configValidation, popupAddProfile);
+addFormValidator.enableValidation();
+
+const editFormValidator = new FormValidator(configValidation, popupEditProfile);
+editFormValidator.enableValidation();
