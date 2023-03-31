@@ -1,6 +1,6 @@
 import { initialCards, configValidation } from './constans.js';
 import { FormValidator } from './FormValidator.js';
-// import { Card } from './Card.js';
+import { Card } from './Card.js';
 
 // Profile
 const titleProfile = document.querySelector('.profile__title');
@@ -9,7 +9,9 @@ const buttonEditPopup = document.querySelector('.profile__edit-button');
 const buttonAddPopup = document.querySelector('.profile__add-button');
 // Container + Template
 const elementsList = document.querySelector('.elements__list');
-const elementTemplateCard = document.querySelector('#element__template-card').content;
+
+// (for me) Нету содержания, т.к оно находится в самом классе
+// const elementTemplateCard = document.querySelector('#element__template-card').content;
 // Forms
 const formEditProfile = document.forms.editForm;
 const formAddProfile = document.forms.addForm;
@@ -28,33 +30,20 @@ const submitButtonCreate = document.querySelector('.popup__submit-button_create'
 const inputNamePopupEdit = document.querySelector('#inputNameEditProfile');
 const inputAboutPopupEdit = document.querySelector('#inputDescriptionEditProfile');
 
-function createCard(title, url) {
-  const cardElement = elementTemplateCard.querySelector('.elements__item').cloneNode(true);
-  const deleteBtn = cardElement.querySelector('.elements__delete-button');
-  const likeBtn = cardElement.querySelector('.elements__like-button');
-  const elementsTitle = cardElement.querySelector('.elements__title');
-  elementsTitle.textContent = title;
-  const elementsImage = cardElement.querySelector('.elements__image');
-  elementsImage.src = url;
-  elementsImage.alt = title;
+const addFormValidator = new FormValidator(configValidation, popupAddProfile);
+addFormValidator.enableValidation();
 
-  elementsImage.addEventListener('click', () => showImage(title, url));
-  deleteBtn.addEventListener('click', deleteCard);
-  likeBtn.addEventListener('click', toggleLike);
+const editFormValidator = new FormValidator(configValidation, popupEditProfile);
+editFormValidator.enableValidation();
 
-  return cardElement;
+function addCard(data) {
+  const cardItem = new Card(data, '#element__template-card', showImage);
+  const cardElement = cardItem.createCard();
+  elementsList.prepend(cardElement);
 }
-function addCard(title, url, container) {
-  container.prepend(createCard(title, url));
-}
-
-function deleteCard(evt) {
-  evt.target.closest('.elements__item').remove();
-}
-
-function toggleLike(evt) {
-  evt.target.classList.toggle('elements__like-button_active');
-}
+initialCards.forEach((card) => {
+  addCard(card);
+});
 
 function openPopup(popup) {
   popup.classList.add('popup_open');
@@ -74,6 +63,7 @@ function closePopupByEscape(evt) {
 function openPopupEditProfile() {
   inputNamePopupEdit.value = titleProfile.textContent;
   inputAboutPopupEdit.value = subtitleProfile.textContent;
+  editFormValidator.clearInputsErrors();
   openPopup(popupEditProfile);
 }
 function openPopupAddProfile() {
@@ -88,7 +78,11 @@ function submitEditProfileForm(evt) {
 
 function submitAddCardProfile(evt) {
   evt.preventDefault();
-  addCard(nameInputPopupAdd.value, urlInputPopupAdd.value, elementsList);
+  const inputsAddPopupValues = {
+    name: nameInputPopupAdd.value,
+    link: urlInputPopupAdd.value,
+  };
+  addCard(inputsAddPopupValues);
   addForm.reset();
   submitButtonCreate.classList.add('popup__submit-button_disabled');
   submitButtonCreate.setAttribute('disabled', 'disabled');
@@ -101,9 +95,6 @@ function showImage(title, url) {
 
   openPopup(popupImageProfile);
 }
-initialCards.forEach((item) => {
-  addCard(item.name, item.link, elementsList);
-});
 
 buttonEditPopup.addEventListener('click', openPopupEditProfile);
 buttonAddPopup.addEventListener('click', openPopupAddProfile);
@@ -120,9 +111,3 @@ popups.forEach((popup) => {
     }
   });
 });
-
-const addFormValidator = new FormValidator(configValidation, popupAddProfile);
-addFormValidator.enableValidation();
-
-const editFormValidator = new FormValidator(configValidation, popupEditProfile);
-editFormValidator.enableValidation();
