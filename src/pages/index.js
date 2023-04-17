@@ -6,7 +6,6 @@ import {
   inputDescriptionPopupEdit,
   buttonAddCardFormPopup,
   buttonEditUserFormPopup,
-  containerElementsList,
   popupEditUserProfile,
   popupAddCardProfile,
 } from '../scripts/constans.js';
@@ -40,11 +39,13 @@ const cardList = new Section(
 
 cardList.renderItems();
 
+// Popup Image
+const popupWithImage = new PopupWithImage('.popup_type_image');
+popupWithImage.setEventListeners();
+
 function addCard(data) {
-  const cardItem = new Card(data, '#element__template-card', () => {
-    const popupWithImage = new PopupWithImage('.popup_type_image', data);
-    popupWithImage.openPopup();
-    popupWithImage.setEventListeners();
+  const cardItem = new Card(data, '#element__template-card', (name, link) => {
+    popupWithImage.open(name, link);
   });
   const cardElement = cardItem.createCard();
   return cardElement;
@@ -52,15 +53,15 @@ function addCard(data) {
 
 // AddCardSubmit Form
 const popupWithAddCardForm = new PopupWithForm('.popup_type_add', (formData) => {
-  containerElementsList.prepend(addCard(formData));
+  cardList.setItem(addCard(formData));
   addCardFormValidator.disableSubmitButton();
-  popupWithAddCardForm.closePopup();
+  popupWithAddCardForm.close();
 });
 
 popupWithAddCardForm.setEventListeners();
 
 buttonAddCardFormPopup.addEventListener('click', () => {
-  popupWithAddCardForm.openPopup();
+  popupWithAddCardForm.open();
 });
 
 // UserInfo Form
@@ -71,7 +72,7 @@ const currentUserInfo = new UserInfo({
 
 const popupWithUserInfoForm = new PopupWithForm('.popup_type_edit', (formData) => {
   currentUserInfo.setUserInfo(formData);
-  popupWithUserInfoForm.closePopup();
+  popupWithUserInfoForm.close();
 });
 popupWithUserInfoForm.setEventListeners();
 
@@ -81,5 +82,5 @@ buttonEditUserFormPopup.addEventListener('click', () => {
   inputDescriptionPopupEdit.value = getUserInfo.description;
 
   editUserFormValidator.clearInputsErrors();
-  popupWithUserInfoForm.openPopup();
+  popupWithUserInfoForm.open();
 });

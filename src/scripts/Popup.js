@@ -11,12 +11,12 @@ export class Popup {
     }
   }
 
-  openPopup() {
+  open() {
     this._popup.classList.add('popup_open');
     document.addEventListener('keydown', this._handleEscClose);
   }
 
-  closePopup() {
+  close() {
     this._popup.classList.remove('popup_open');
     document.removeEventListener('keydown', this._handleEscClose);
   }
@@ -24,10 +24,10 @@ export class Popup {
   setEventListeners() {
     this._popup.addEventListener('mousedown', (evt) => {
       if (evt.target.classList.contains('popup_open')) {
-        this.closePopup();
+        this.close();
       }
       if (evt.target.classList.contains('popup__close-button')) {
-        this.closePopup();
+        this.close();
       }
     });
   }

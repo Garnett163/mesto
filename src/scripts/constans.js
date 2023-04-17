@@ -50,9 +50,6 @@ export const inputDescriptionPopupEdit = document.querySelector('#inputDescripti
 export const buttonEditUserFormPopup = document.querySelector('.profile__edit-button');
 export const buttonAddCardFormPopup = document.querySelector('.profile__add-button');
 
-// Container
-export const containerElementsList = document.querySelector('.elements__list');
-
 // Popups
 export const popupEditUserProfile = document.querySelector('.popup_type_edit');
 export const popupAddCardProfile = document.querySelector('.popup_type_add');
