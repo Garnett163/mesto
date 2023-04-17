@@ -1,10 +1,10 @@
 export class Card {
-  constructor(data, templateSelector, showImage) {
+  constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
-    this._showImage = showImage;
-    this._card = undefined; // (for me) ее можно не объявлять, а точнее не сохранять в нее данные, схожа с _image и _title и т.д
+    this._handleCardClick = handleCardClick;
+    this._card = undefined;
   }
 
   _getTemplate() {
@@ -51,7 +51,7 @@ export class Card {
       this._toggleLike();
     });
     this._image.addEventListener('click', () => {
-      this._showImage(this._name, this._link);
+      this._handleCardClick(this._name, this._link);
     });
   }
 }
