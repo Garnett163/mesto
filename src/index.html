@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Viktor Filippov" />
     <meta name="keywords" content="html, cssь js" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Проект: Место</title>
   </head>
   <body class="page">
     <header class="header">
-      <img class="header__logo" src="./images/Mesto-logo.svg" alt="Логотип Место" />
+      <img class="header__logo" src="<%=require('./images/Mesto-logo.svg')%>" alt="Логотип Место" />
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/Avatar.png" alt="Аватар портфолио" />
+        <img
+          class="profile__avatar"
+          src="<%=require('./images/Avatar.png')%>"
+          alt="Аватар портфолио" />
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" type="button"></button>
@@ -117,6 +119,5 @@
         <figcaption class="popup__image-title"></figcaption>
       </figure>
     </div>
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>

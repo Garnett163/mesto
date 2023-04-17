@@ -1,27 +1,34 @@
+// const karachaevs = new URL('../images/karachaevs.png', import.meta.url);
+const elbrusPicture = new URL('../images/Elbrus.png', import.meta.url);
+const lakeLouisePicture = new URL('../images/Louise-Lake.jpg', import.meta.url);
+const icelandPicture = new URL('../images/Iceland.jpg', import.meta.url);
+const lakeJunePicture = new URL('../images/June-Lake.jpg', import.meta.url);
+const valDeSharmePicture = new URL('../images/Val-de-Charmey.jpg', import.meta.url);
+
 export const initialCards = [
   {
-    name: 'Карачаевск',
-    link: './images/karachaevs.png',
+    name: 'PEPE CRY',
+    link: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzzJ5bAbXx0nf2X9q74QXu2Dlk5WWNVmShgw&usqp=CAU',
   },
   {
     name: 'Гора Эльбрус',
-    link: './images/Elbrus.png',
+    link: elbrusPicture,
   },
   {
     name: 'Озеро Лейк',
-    link: './images/Louise-Lake.jpg',
+    link: lakeLouisePicture,
   },
   {
     name: 'Исландия',
-    link: './images/Iceland.jpg',
+    link: icelandPicture,
   },
   {
     name: 'Озеро Джун',
-    link: './images/June-Lake.jpg',
+    link: lakeJunePicture,
   },
   {
     name: 'Валь-де-Шарме',
-    link: './images/Val-de-Charmey.jpg',
+    link: valDeSharmePicture,
   },
 ];
 

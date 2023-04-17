@@ -1,3 +1,4 @@
+import './index.css';
 import {
   initialCards,
   configValidation,
@@ -9,6 +10,7 @@ import {
   popupEditUserProfile,
   popupAddCardProfile,
 } from '../scripts/constans.js';
+
 import { FormValidator } from '../scripts/FormValidator.js';
 import { Card } from '../scripts/Card.js';
 import { Section } from '../scripts/Section.js';
