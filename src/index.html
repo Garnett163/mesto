@@ -13,14 +13,16 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img
-          class="profile__avatar"
-          src="<%=require('./images/Avatar.png')%>"
-          alt="Аватар портфолио" />
+        <div class="profile__avatar-container">
+          <img class="profile__avatar" src="#" alt="Аватар портфолио" />
+          <button class="profile__avatar-button">
+            <img class="profile__avatar-image-button" src="<%=require('./images/Vector.png')%>" />
+          </button>
+        </div>
         <div class="profile__info">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <h1 class="profile__title"></h1>
           <button class="profile__edit-button" type="button"></button>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <p class="profile__subtitle"></p>
         </div>
         <button class="profile__add-button" type="button"></button>
       </section>
@@ -32,7 +34,10 @@
               <img class="elements__image" src="#" alt="#" />
               <div class="elements__container">
                 <h2 class="elements__title"></h2>
-                <button class="elements__like-button" type="button"></button>
+                <div class="elements__likes-container">
+                  <button class="elements__like-button" type="button"></button>
+                  <span class="elements__likes-counter"></span>
+                </div>
               </div>
             </li>
           </template>
@@ -63,7 +68,7 @@
             <div class="popup__input-box">
               <input
                 class="popup__input"
-                name="description"
+                name="about"
                 id="inputDescriptionEditProfile"
                 type="text"
                 placeholder="О себе"
@@ -108,6 +113,40 @@
             <button type="submit" class="popup__submit-button popup__submit-button_create">
               Создать
             </button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_avatar">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <form action="#" class="popup__form" name="addForm" method="POST">
+          <fieldset class="popup__fieldset">
+            <legend class="popup__title">Обновить Аватар</legend>
+            <div class="popup__input-box">
+              <input
+                class="popup__input popup__input_url"
+                name="avatar"
+                type="url"
+                id="inputImageUrlAvatarProfile"
+                placeholder="Ссылка на ваш аватар"
+                required />
+              <span class="popup__input-error inputImageUrlAvatarProfile-error"></span>
+            </div>
+            <button type="submit" class="popup__submit-button popup__submit-button_create">
+              Сохранить
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_confirm">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <form class="popup__form">
+          <fieldset class="popup__fieldset">
+            <legend class="popup__title popup__title_confirm">Вы уверены?</legend>
+            <button type="submit" class="popup__submit-button">Да</button>
           </fieldset>
         </form>
       </div>
