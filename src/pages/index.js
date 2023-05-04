@@ -154,6 +154,7 @@ const popupWithAddCardForm = new PopupWithForm('.popup_type_add', (formData) => 
     .addNewCard(formData)
     .then((data) => {
       cardList.setItem(addCard(data));
+      addCardFormValidator.disableSubmitButton();
       popupWithAddCardForm.close();
     })
     .catch((err) => {
@@ -162,8 +163,6 @@ const popupWithAddCardForm = new PopupWithForm('.popup_type_add', (formData) => 
     .finally(() => {
       popupWithAddCardForm.showLoading(false);
     });
-
-  addCardFormValidator.disableSubmitButton();
 });
 popupWithAddCardForm.setEventListeners();
 
@@ -192,16 +191,3 @@ popupAvatarForm.setEventListeners();
 buttonAvatarFormPopup.addEventListener('click', () => {
   popupAvatarForm.open();
 });
-
-// fetch('https://mesto.nomoreparties.co/v1/cohort-65/cards', {
-//   headers: {
-//     authorization: '2d21610b-41f6-470d-8829-f4586478ebfc',
-//     'Content-Type': 'application/json',
-//   },
-// })
-//   .then((res) => {
-//     return res.json();
-//   })
-//   .then((data) => {
-//     console.log(data);
-//   });
