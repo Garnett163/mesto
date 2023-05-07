@@ -8,7 +8,7 @@ export class Card {
     this._link = data.link;
     this._owner = data.owner;
     this._likes = data.likes;
-    this._id = data._id;
+    this.id = data._id;
     this._userId = userId;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;

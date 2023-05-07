@@ -110,7 +110,7 @@ function addCard(data) {
     handleLikeClick: () => {
       if (cardItem.checkIsLiked()) {
         api
-          .dislikeCard(data._id)
+          .dislikeCard(cardItem.id)
           .then((data) => {
             cardItem.removeLike(data.likes);
           })
@@ -119,7 +119,7 @@ function addCard(data) {
           });
       } else {
         api
-          .likeCard(data._id)
+          .likeCard(cardItem.id)
           .then((data) => {
             cardItem.addLike(data.likes);
           })
@@ -136,7 +136,7 @@ function addCard(data) {
 
 const popupWithDeleteConfirm = new PopupDeleteConfirm('.popup_type_confirm', (card) => {
   api
-    .deleteCard(card._id)
+    .deleteCard(card.id)
     .then(() => {
       card.removeDOMCard();
       popupWithDeleteConfirm.close();
